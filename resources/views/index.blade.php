@@ -1,13 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    @foreach($standings as $club)
-    <table>
-        <tr>
-            <td>{{ $club->club }}</td>
-            <td>{{ $club->city }}</td>
-            <td>{{ $club->score }}</td>
-        </tr>
-        
-    </table>
-    @endforeach
+    <div class="container">
+        <a href="{{route('club.create')}}">Create Club</a>
+        <a href="{{route('score.index')}}">Create Match</a>
+        <a href="{{route('standings')}}">Standings</a>
+    </div>
 @endsection

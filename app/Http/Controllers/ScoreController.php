@@ -6,6 +6,7 @@ use App\Models\Score;
 use Illuminate\Http\Request;
 use App\Models\Club;
 use App\Models\Standings;
+use App\Rules\UniqueMatch;
 
 class ScoreController extends Controller
 {
@@ -39,7 +40,7 @@ class ScoreController extends Controller
     public function store(Request $request)
 {
     $validatedData = $request->validate([
-        'club1.*' => 'required',
+        'club1.*' => ['required', new UniqueMatch],
         'club2.*' => 'required',
         'score1.*' => 'required',
         'score2.*' => 'required',
@@ -65,7 +66,7 @@ class ScoreController extends Controller
         $this->updateStandings($club2, $score2, $score1);
     }
 
-    return redirect('/home');
+    return redirect('/standings');
 }
 
 private function updateStandings($club, $scoreFor, $scoreAgainst)

@@ -10,5 +10,7 @@
             <button class="btn btn-success">Submit</button>
         </div>
     </form>
+    <a href="{{route('score.index')}}">Create Match</a>
+    <a href="{{route('standings.index')}}">Standings</a>
 </div>
 @endsection

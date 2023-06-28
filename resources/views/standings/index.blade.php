@@ -24,4 +24,6 @@
         </tr>
         @endforeach
     </table>
+    <a href="{{route('score.index')}}">Create Match</a>
+    <a href="{{route('club.create')}}">Create Club</a>
 @endsection
